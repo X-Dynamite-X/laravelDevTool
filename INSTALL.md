@@ -13,6 +13,19 @@ chmod +x laravel-dev-installer.sh
 ./laravel-dev-installer.sh
 ```
 
+Installer now attempts to install required dependencies automatically on:
+- Ubuntu / Debian / Kali (`apt`)
+- Arch / Manjaro (`pacman`)
+- Fedora / RHEL / AlmaLinux / Rocky (`dnf` or `yum`)
+- openSUSE (`zypper`)
+
+If your distro/package names differ, install these manually:
+- `nginx`
+- `mariadb` or `mysql`
+- `php`, `php-fpm`, `php-mysql`
+- `composer`
+- `python3`, `python3-gi`, `gtk3`, `webkit2gtk`
+
 ## 3) Start App
 Run:
 ```bash
@@ -57,7 +70,7 @@ sudo /opt/laravel-dev/uninstall.sh
 ```
 
 ## 7) If Desktop App Does Not Open
-Install GUI dependencies:
+Install GUI dependencies manually:
 ```bash
 sudo apt install python3-gi gir1.2-gtk-3.0 gir1.2-webkit2-4.1
 ```
