@@ -19,6 +19,11 @@ Installer now attempts to install required dependencies automatically on:
 - Fedora / RHEL / AlmaLinux / Rocky (`dnf` or `yum`)
 - openSUSE (`zypper`)
 
+After install, it also auto-enables and starts core services:
+- `nginx`
+- `mysql`/`mariadb` (auto-detected)
+- `php-fpm` (service name auto-detected)
+
 If your distro/package names differ, install these manually:
 - `nginx`
 - `mariadb` or `mysql`
