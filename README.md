@@ -56,3 +56,103 @@ Or use:
 ```bash
 laravel-dev create myproject 8.4
 ```
+
+## CLI Commands
+
+### Create a Project
+
+```bash
+laravel-dev create myproject 8.4
+```
+
+Creates a new Laravel project, prepares the database, generates the nginx config, and maps:
+
+```text
+http://myproject.test
+```
+
+### Delete a Project
+
+```bash
+laravel-dev delete myproject
+```
+
+Removes the project directory, nginx config, host mapping, and database.
+
+### Repair a Project
+
+```bash
+laravel-dev repair myproject
+```
+
+Repairs permissions, environment values, and regenerates nginx configuration.
+
+### Diagnose a Project
+
+```bash
+laravel-dev diagnose myproject
+```
+
+Shows project path, nginx config path, host mapping status, and request diagnostics.
+
+### List Projects
+
+```bash
+laravel-dev list
+```
+
+Lists projects inside the configured sites directory.
+
+### Show Available PHP Versions
+
+```bash
+laravel-dev php-versions
+```
+
+Shows PHP versions detected on the current system.
+
+### Show PHP-FPM Services
+
+```bash
+laravel-dev php-fpm-services
+```
+
+Shows detected PHP-FPM service names available on the system.
+
+### Start Core Services
+
+```bash
+laravel-dev start
+```
+
+Starts:
+- `nginx`
+- `mysql` or `mariadb`
+- detected `php-fpm`
+
+### Stop Core Services
+
+```bash
+laravel-dev stop
+```
+
+Stops:
+- `nginx`
+- `mysql` or `mariadb`
+- detected `php-fpm`
+
+### Open Dashboard in Browser
+
+```bash
+laravel-dev dashboard
+```
+
+Starts the local dashboard server and opens it in the browser.
+
+### Open Desktop App
+
+```bash
+laravel-dev app
+```
+
+Opens the Linux desktop app interface.
