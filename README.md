@@ -1,26 +1,25 @@
-# Laravel Dev Tool Release Files
+# Laravel Dev - Public Release Package
 
-This directory contains the files intended for end users.
+This directory is prepared for the public repository and contains only the files needed by end users.
 
-## Files
+It does not contain the full source code repository.
+
+## Included Files
 
 - `laravel-dev-installer.sh`
-  - Main installer file for end users.
-  - This is the recommended file to download and run.
-
+  Main installer file. This is the default file users should download.
 - `laravel-dev-1.0.1-installer.sh`
-  - Versioned copy of the same installer.
-  - Useful for archived releases or explicit version downloads.
-
+  Versioned installer copy for archive or tagged release usage.
+- `laravel-dev-tool.tar.gz`
+  Packaged application archive used by the installer flow.
 - `laravel-dev-1.0.1.tar.gz.sha256`
-  - SHA256 checksum for release verification.
-
+  SHA256 checksum for verifying the packaged archive.
 - `INSTALL.md`
-  - End-user installation and usage guide.
+  End-user installation and usage guide.
 
-## Recommended Usage
+## Recommended Download For Users
 
-Run:
+Download and run:
 
 ```bash
 chmod +x laravel-dev-installer.sh
@@ -29,11 +28,14 @@ chmod +x laravel-dev-installer.sh
 
 ## What The Installer Does
 
-- Detects the Linux distribution package manager
-- Installs required dependencies automatically
-- Installs Laravel Dev Tool under `/opt/laravel-dev`
-- Enables and starts required services when possible
-- Adds the `laravel-dev` command to the system
+The installer will try to:
+
+- Detect the Linux distribution package manager
+- Install required dependencies automatically when possible
+- Install Laravel Dev into `/opt/laravel-dev`
+- Add the `laravel-dev` command to the system
+- Install the desktop launcher and application icon
+- Enable and start the required runtime services when possible
 
 ## Supported Package Managers
 
@@ -43,116 +45,87 @@ chmod +x laravel-dev-installer.sh
 - `yum`
 - `zypper`
 
-## After Install
+## After Installation
 
-Run:
+Open the app with:
 
 ```bash
 laravel-dev app
 ```
 
-Or use:
+Or use the CLI directly:
 
 ```bash
 laravel-dev create myproject 8.4
 ```
 
-## CLI Commands
+## Main Features
 
-### Create a Project
+- Create new Laravel projects
+- Link existing Laravel projects
+- Manage Nginx, database, and PHP-FPM services
+- Open a dashboard with sidebar navigation
+- Use light and dark mode
+- View recent activity and error logs
+- Manage project database settings and cron jobs
+
+## Basic CLI Commands
+
+Create a project:
 
 ```bash
 laravel-dev create myproject 8.4
 ```
 
-Creates a new Laravel project, prepares the database, generates the nginx config, and maps:
-
-```text
-http://myproject.test
-```
-
-### Delete a Project
-
-```bash
-laravel-dev delete myproject
-```
-
-Removes the project directory, nginx config, host mapping, and database.
-
-### Repair a Project
-
-```bash
-laravel-dev repair myproject
-```
-
-Repairs permissions, environment values, and regenerates nginx configuration.
-
-### Diagnose a Project
-
-```bash
-laravel-dev diagnose myproject
-```
-
-Shows project path, nginx config path, host mapping status, and request diagnostics.
-
-### List Projects
+List projects:
 
 ```bash
 laravel-dev list
 ```
 
-Lists projects inside the configured sites directory.
-
-### Show Available PHP Versions
+Repair a project:
 
 ```bash
-laravel-dev php-versions
+laravel-dev repair myproject
 ```
 
-Shows PHP versions detected on the current system.
-
-### Show PHP-FPM Services
-
-```bash
-laravel-dev php-fpm-services
-```
-
-Shows detected PHP-FPM service names available on the system.
-
-### Start Core Services
+Start core services:
 
 ```bash
 laravel-dev start
 ```
 
-Starts:
-- `nginx`
-- `mysql` or `mariadb`
-- detected `php-fpm`
-
-### Stop Core Services
+Stop core services:
 
 ```bash
 laravel-dev stop
 ```
 
-Stops:
-- `nginx`
-- `mysql` or `mariadb`
-- detected `php-fpm`
-
-### Open Dashboard in Browser
+Open the dashboard in a browser:
 
 ```bash
 laravel-dev dashboard
 ```
 
-Starts the local dashboard server and opens it in the browser.
-
-### Open Desktop App
+Open the desktop app:
 
 ```bash
 laravel-dev app
 ```
 
-Opens the Linux desktop app interface.
+## Public Repository Purpose
+
+This folder is intended for the public release repository only.
+
+The public repository should contain:
+
+- Installers
+- Release archive
+- Checksum file
+- User-facing installation docs
+
+It should not contain:
+
+- Full private source history
+- Internal development files
+- Build-only scripts that are not needed by end users
