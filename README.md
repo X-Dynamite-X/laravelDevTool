@@ -8,11 +8,11 @@ This directory contains the files intended for end users.
   - Main installer file for end users.
   - This is the recommended file to download and run.
 
-- `laravel-dev-1.0.0-installer.sh`
+- `laravel-dev-1.0.1-installer.sh`
   - Versioned copy of the same installer.
   - Useful for archived releases or explicit version downloads.
 
-- `laravel-dev-1.0.0.tar.gz.sha256`
+- `laravel-dev-1.0.1.tar.gz.sha256`
   - SHA256 checksum for release verification.
 
 - `INSTALL.md`
