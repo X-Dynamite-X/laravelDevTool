@@ -29,6 +29,7 @@ If your distro/package names differ, install these manually:
 - `mariadb` or `mysql`
 - `php`, `php-fpm`, `php-mysql`
 - `composer`
+- `node`, `npm`
 - `python3`, `python3-gi`, `gtk3`, `webkit2gtk`
 
 ## 3) Start App
@@ -37,6 +38,8 @@ Run:
 laravel-dev app
 ```
 Or open from app menu: **Laravel Dev**
+
+The dashboard now binds on all interfaces by default. You can access it from a LAN IP or from a custom host/domain if you point that host to the machine and set `WEB_PUBLIC_HOST`.
 
 ## 4) Create Project
 Inside app UI, create a project with selected PHP version.
@@ -47,6 +50,13 @@ laravel-dev create myproject 8.4
 ```
 Then open:
 - `http://myproject.test`
+
+Managed Node projects are also supported:
+
+```bash
+laravel-dev create-node my-frontend next
+laravel-dev create-node my-api nest
+```
 
 ## 5) Useful Commands
 List projects:
@@ -67,6 +77,11 @@ laravel-dev start
 Stop core services:
 ```bash
 laravel-dev stop
+```
+
+Expose a managed project on LAN metadata:
+```bash
+laravel-dev expose my-frontend lan
 ```
 
 ## 6) Uninstall

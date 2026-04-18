@@ -36,6 +36,8 @@ The installer will try to:
 - Add the `laravel-dev` command to the system
 - Install the desktop launcher and application icon
 - Enable and start the required runtime services when possible
+- Enable managed Node workspace support (`Next.js`, `Nuxt`, `NestJS`) when Node packages are available
+- Bind the dashboard so it can be reached from all local interfaces by default
 
 ## Supported Package Managers
 
@@ -59,15 +61,25 @@ Or use the CLI directly:
 laravel-dev create myproject 8.4
 ```
 
+Create a managed Node project:
+
+```bash
+laravel-dev create-node my-frontend next
+```
+
 ## Main Features
 
 - Create new Laravel projects
+- Create and manage `Next.js`, `Nuxt`, and `NestJS` projects
 - Link existing Laravel projects
+- Link existing Node projects and connect frontend/backend workspaces
 - Manage Nginx, database, and PHP-FPM services
 - Open a dashboard with sidebar navigation
+- Search and filter managed projects
 - Use light and dark mode
 - View recent activity and error logs
 - Manage project database settings and cron jobs
+- Control local/LAN/public-oriented project exposure metadata
 
 ## Basic CLI Commands
 
@@ -106,6 +118,8 @@ Open the dashboard in a browser:
 ```bash
 laravel-dev dashboard
 ```
+
+The dashboard listens on all interfaces by default and can be opened with a custom host/domain through the dashboard settings or `~/.config/laravel-dev/config.env`.
 
 Open the desktop app:
 
