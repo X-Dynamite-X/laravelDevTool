@@ -1,100 +1,100 @@
-# Laravel Dev - User Guide (Release)
+# Laravel Dev 2.0 – Installation Guide
 
-This guide is for users who download the release installer.
+This is the short version. `README.md` has the full guide to every feature.
 
-## 1) Download
-Download file:
-- `laravel-dev-installer.sh`
+## 1. Download
 
-## 2) Install
-Open terminal in download folder and run:
+Get the installer for your system from the **Releases** page:
+
+| System | File |
+|---|---|
+| Linux | `laravel-dev-installer.sh` |
+| macOS | `laravel-dev-installer-macos.command` |
+| Windows | `laravel-dev-installer-windows.cmd` |
+
+## 2. Requirements
+
+**Linux.** You need a distribution that uses `apt`, `pacman`, `dnf`/`yum` or `zypper`, a user that
+can use `sudo`, an internet connection and a desktop session. The installer installs the rest:
+
+- nginx
+- MariaDB or MySQL
+- PHP with PHP-FPM
+- Composer
+- Git
+- Python 3 with GTK 3 and WebKitGTK
+
+Optional extras, used when available:
+
+| Package | Adds |
+|---|---|
+| `mkcert` | Local HTTPS |
+| `cloudflared` | Public tunnels |
+| Node.js and npm | Next.js, Nuxt, Vite and Node projects |
+| `python3-venv` | Django projects |
+| AppIndicator | The tray icon |
+
+**macOS and Windows.** You need Python 3.10 or newer; the installer offers to install it. PHP,
+Composer, Node and Git must already be on your `PATH` for the projects that need them.
+
+## 3. Install
+
+**Linux.** Open a terminal in the download folder:
+
 ```bash
 chmod +x laravel-dev-installer.sh
 ./laravel-dev-installer.sh
 ```
 
-Installer now attempts to install required dependencies automatically on:
-- Ubuntu / Debian / Kali (`apt`)
-- Arch / Manjaro (`pacman`)
-- Fedora / RHEL / AlmaLinux / Rocky (`dnf` or `yum`)
-- openSUSE (`zypper`)
+Run it as your normal user, not with `sudo`; it asks for your password when needed. The app goes into
+`/opt/laravel-dev`, and nginx, the database and PHP-FPM are started for you.
 
-After install, it also auto-enables and starts core services:
-- `nginx`
-- `mysql`/`mariadb` (auto-detected)
-- `php-fpm` (service name auto-detected)
+If your distribution's package names are different, install these yourself and run the installer
+again: `nginx`, `mariadb` (or `mysql`), `php`, `php-fpm`, `php-mysql`, `composer`, `python3`,
+`python3-gi`, `gtk3`, `webkit2gtk`, `python3-pymysql` and `zenity`.
 
-If your distro/package names differ, install these manually:
-- `nginx`
-- `mariadb` or `mysql`
-- `php`, `php-fpm`, `php-mysql`
-- `composer`
-- `node`, `npm`
-- `python3`, `python3-gi`, `gtk3`, `webkit2gtk`
+**macOS.**
 
-## 3) Start App
-Run:
+```bash
+bash laravel-dev-installer-macos.command
+```
+
+This installs **Laravel Dev.app** in `~/Applications`.
+
+**Windows.** Double-click `laravel-dev-installer-windows.cmd`. If SmartScreen appears, click
+**More info → Run anyway**. The app installs for your user only, with Start menu and desktop shortcuts.
+
+## 4. Start
+
+Open **Laravel Dev** from your applications menu, or run:
+
 ```bash
 laravel-dev app
 ```
-Or open from app menu: **Laravel Dev**
 
-The dashboard now binds on all interfaces by default. You can access it from a LAN IP or from a custom host/domain if you point that host to the machine and set `WEB_PUBLIC_HOST`.
+Click **Add site** (`Ctrl+N`) to create a Laravel project, link an existing folder or clone a Git
+repository. Then open `http://<name>.test` in your browser.
 
-## 4) Create Project
-Inside app UI, create a project with selected PHP version.
+## 5. Update
 
-CLI alternative:
-```bash
-laravel-dev create myproject 8.4
-```
-Then open:
-- `http://myproject.test`
+Download the new installer and run it again. Your settings and projects are kept.
 
-Managed Node projects are also supported:
+## 6. Uninstall
 
-```bash
-laravel-dev create-node my-frontend next
-laravel-dev create-node my-api nest
-```
+| System | How |
+|---|---|
+| Linux | `sudo /opt/laravel-dev/uninstall.sh` |
+| macOS | `bash ~/Library/Application\ Support/LaravelDev/install/uninstall.command` |
+| Windows | **Settings → Apps → Installed apps → Laravel Dev → Uninstall** |
 
-## 5) Useful Commands
-List projects:
-```bash
-laravel-dev list
-```
+Your project folders and databases are never deleted.
 
-Repair project setup:
-```bash
-laravel-dev repair myproject 8.4
-```
+## 7. If the app window doesn't open (Linux)
 
-Start core services:
-```bash
-laravel-dev start
-```
-
-Stop core services:
-```bash
-laravel-dev stop
-```
-
-Expose a managed project on LAN metadata:
-```bash
-laravel-dev expose my-frontend lan
-```
-
-## 6) Uninstall
-```bash
-sudo /opt/laravel-dev/uninstall.sh
-```
-
-## 7) If Desktop App Does Not Open
-Install GUI dependencies manually:
 ```bash
 sudo apt install python3-gi gir1.2-gtk-3.0 gir1.2-webkit2-4.1
-```
-If `4.1` is unavailable:
-```bash
+# if 4.1 isn't available:
 sudo apt install python3-gi gir1.2-gtk-3.0 gir1.2-webkit2-4.0
 ```
+
+On Arch: `sudo pacman -S python-gobject gtk3 webkit2gtk-4.1`.
