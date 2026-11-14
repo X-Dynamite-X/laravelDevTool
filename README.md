@@ -152,11 +152,11 @@ Don't run it with `sudo`; it asks for your password when it needs it. It will:
 5. enable and start nginx, MariaDB/MySQL and PHP-FPM.
 
 The installer checks the app itself. If you also download the archive `laravel-dev-tool.tar.gz`, you
-can compare its checksum with the value in `laravel-dev-2.0.0.tar.gz.sha256`:
+can compare its checksum with the value in `laravel-dev-2.5.0.tar.gz.sha256`:
 
 ```bash
 sha256sum laravel-dev-tool.tar.gz
-cat laravel-dev-2.0.0.tar.gz.sha256
+cat laravel-dev-2.5.0.tar.gz.sha256
 ```
 
 ### macOS
