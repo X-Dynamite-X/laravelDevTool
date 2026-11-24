@@ -314,6 +314,7 @@ database. Below, the tabs are grouped by what you're doing.
 | **Deploy** | Deploys the project to one of your servers. |
 
 <p align="center"><img src="images/time-machine.png" alt="Time Machine checkpoints" width="860"></p>
+
 #### Editing .env
 
 - Variables are shown as **Text** or **Secret**. Secrets stay hidden until you click the eye icon.
